@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример сайта с меню</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">LOGO</div>
+    <button class="menu-btn" id="open-menu-btn">☰</button>
+  </header>
+
+  <div class="menu" id="side-menu">
+    <button class="close-btn" id="close-menu-btn">×</button>
+    <ul>
+      <li><a href="#">Преимущества</a></li>
+      <li><a href="#">Как мы работаем</a></li>
+    </ul>
+  </div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu-btn {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin: 15px 0;
+    }
+
+    .menu ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 18px;
+    }
+
+    .close-btn {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      align-self: flex-end;
+      cursor: pointer;
+    }
+
+    /* Когда меню открыто */
+    .menu.open {
+      right: 0;
+    }
+  </style>
+  <script>
+    document.getElementById("open-menu-btn").addEventListener("click", function () {
+      document.getElementById("side-menu").classList.add("open");
+    });
+
+    document.getElementById("close-menu-btn").addEventListener("click", function () {
+      document.getElementById("side-menu").classList.remove("open");
+    });
+
+  </script>
+</body>
+
+</html>
